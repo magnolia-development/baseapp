@@ -1,8 +1,116 @@
-# Omakase Ruby styling for Rails
-inherit_gem: { rubocop-rails-omakase: rubocop.yml }
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-rspec_rails
 
-# Overwrite or add rules to create your own house style
-#
-# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
-# Layout/SpaceInsideArrayLiteralBrackets:
-#   Enabled: false
+AllCops:
+  NewCops: enable
+
+Layout/ArgumentAlignment:
+  Enabled: true
+  EnforcedStyle: with_fixed_indentation
+
+Layout/TrailingEmptyLines:
+  Enabled: true
+  EnforcedStyle: final_blank_line
+  Exclude:
+    - config/importmap*.rb
+
+Metrics/AbcSize:
+  Max: 18
+  Exclude:
+    - db/schema.rb
+    - db/migrate/*.rb
+
+Metrics/BlockLength:
+  Enabled: true
+  CountComments: false
+  Exclude:
+    - config/routes.rb
+    - config/environments/*.rb
+    - config/initializers/*.rb
+    - db/schema.rb
+    - db/migrate/*.rb
+
+Metrics/ClassLength:
+  Enabled: true
+  CountAsOne: ["array", "hash", "method_call"]
+
+Metrics/MethodLength:
+  Enabled: true
+  Max: 12
+  CountAsOne: ["array", "hash", "method_call"]
+  Exclude:
+    - db/schema.rb
+    - db/migrate/*.rb
+
+Metrics/ModuleLength:
+  Enabled: true
+  CountAsOne: ["array", "hash", "method_call"]
+
+Naming/VariableNumber:
+  Enabled: true
+  EnforcedStyle: snake_case
+  Exclude:
+    - config/initializers/*.rb
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Rails/HelperInstanceVariable:
+  Enabled: false
+
+Rails/Output:
+  Enabled: true
+  Exclude:
+  - db/seeds/*.rb
+  - db/seeds/**/*.rb
+
+RSpec/ExampleLength:
+  Enabled: true
+  Max: 6
+  CountAsOne: ["array", "hash", "method_call"]
+
+RSpec/Focus:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: true
+  Max: 4
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: always
+  SafeAutoCorrect: true
+  Exclude:
+    - db/schema.rb
+    - db/migrate/*.rb
+    - config/importmap*.rb
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+  ConsistentQuotesInMultiline: true
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+Style/SymbolProc:
+  Enabled: true
+  AllowedMethods:
+    - define_method
+    - after
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: true
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: true
+  EnforcedStyleForMultiline: comma
+
