@@ -1,0 +1,4 @@
+example:
+  value: foo
+  nested:
+    value: bar
