@@ -1,0 +1,24 @@
+@tailwind base;
+
+@layer base {
+  :root {
+    /* --color-primary: #f3c614; */
+    /* --color-secondary: #353535; */
+    /* --color-tertiary: #333; */
+    /* --color-quaternary: #111; */
+
+    --brand-orange: 235 101 52;
+
+    --brand-orange-50: 251 227 218;
+    --brand-orange-100: 249 213 199;
+    --brand-orange-200: 246 184 162;
+    --brand-orange-300: 242 156 125;
+    --brand-orange-400: 238 128 88;
+    --brand-orange-500: var(--brand-orange);:
+    --brand-orange-600: 220 77 24;
+    --brand-orange-700: 184 64 20;
+    --brand-orange-800: 147 51 16;
+    --brand-orange-900: 110 38 12;
+    --brand-orange-950: 92 32 10;
+  }
+}
